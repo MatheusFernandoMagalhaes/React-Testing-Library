@@ -28,7 +28,12 @@
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js, .jsx"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "eslint.format.enable": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
+      "source.organizeImports": true
+    }
   },
   "browserslist": {
     "production": [
