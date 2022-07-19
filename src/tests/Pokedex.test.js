@@ -1,5 +1,5 @@
 import React from 'react';
-import { getByText, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 // import Pokedex from '../pages/Pokedex';
 import renderWithRouter from './utils/renderWithRouter';
@@ -15,8 +15,8 @@ describe('Teste o componente <Pokedex.js />', () => {
   });
   test('Se é exibido o próximo pokémon da lista quando clica em Próximo pokémon', () => {
     renderWithRouter(<App />);
-    const pikachu = screen.getByAltText(/pikachu sprite/i);
-    expect(pikachu.src).toBe('https://cdn2.bulbagarden.net/upload/b/b2/Spr_5b_025_m.png');
+    const pikachu = screen.getByText(/pikachu/i);
+    expect(pikachu).toBeInTheDocument();
     const nextPoke = screen.getByRole('button', {
       name: /próximo pokémon/i });
     userEvent.click(nextPoke);
@@ -44,7 +44,7 @@ describe('Teste o componente <Pokedex.js />', () => {
     const dragonair = screen.getByAltText(/dragonair sprite/i);
     expect(dragonair.src).toBe('https://cdn2.bulbagarden.net/upload/2/2c/Spr_5b_148.png');
     userEvent.click(nextPoke);
-    expect(pikachu.src).toBe('https://cdn2.bulbagarden.net/upload/b/b2/Spr_5b_025_m.png');
+    expect(pikachu).toBeInTheDocument();
   });
   test('Se a Pokédex tem os botões de filtro:', () => {
     renderWithRouter(<App />);
