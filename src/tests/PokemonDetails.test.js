@@ -12,12 +12,11 @@ describe('Teste o componente <Pokemon.js />', () => {
     userEvent.click(moreDetails);
     const details = screen.getByText(/Pikachu Details/i);
     const summary = screen.getByText(/Summary/i);
-    // eslint-disable-next-line max-len
-    const paragrafh = screen.getByText(/This intelligent Pokémon roasts hard berries with electricity to make them tender enough to eat./);
+    const p = screen.getByText(/This intelligent Pokémon roasts hard berries with./);
     expect(details).toBeInTheDocument();
     expect(moreDetails).not.toBeInTheDocument();
     expect(summary).toBeInTheDocument();
-    expect(paragrafh).toBeInTheDocument();
+    expect(p).toBeInTheDocument();
   });
   test(`Se existe na página uma 
   seção com os mapas contendo as localizações do pokémon`, () => {
